@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick Owens</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+        }
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed; /* Закрепляем заголовок */
+            width: 100%;
+            z-index: 1000; /* Помещаем заголовок наверх */
+        }
+        header img {
+            width: 150px;
+        }
+        video {
+            width: 100%;
+            height: 100vh; /* Занимаем всю высоту видимой части экрана */
+            object-fit: cover; /* Растягиваем видео на всю высоту и ширину */
+            position: fixed; /* Закрепляем видео */
+            top: 0;
+            left: 0;
+            z-index: -1; /* Помещаем видео под остальным контентом */
+            transition: opacity 0.01s ease; /* Добавляем плавный переход */
+        }
+        #logo {
+            position: fixed; /* Закрепляем логотип */
+            top: 50%; /* Размещаем логотип по вертикали в середине */
+            left: 50%; /* Размещаем логотип по горизонтали в середине */
+            transform: translate(-50%, -50%); /* Центрируем логотип относительно его собственных размеров */
+            z-index: -1; /* Помещаем логотип под видео */
+            opacity: 1; /* Устанавливаем начальную прозрачность логотипа */
+            transition: opacity 0.01s ease; /* Добавляем плавный переход */
+        }
+        #buy-button {
+            position: fixed; /* Закрепляем кнопку покупки */
+            top: 20px; /* Располагаем ее в верхнем краю */
+            right: 20px; /* Располагаем ее в правом краю */
+            width: 40px; /* Задаем ширину */
+            height: 40px; /* Задаем высоту */
+            z-index: 1000; /* Помещаем кнопку наверх */
+            opacity: 1; /* Устанавливаем начальную прозрачность */
+            transition: opacity 0.3s ease; /* Добавляем плавный переход */
+            cursor: pointer; /* Делаем курсор указателем при наведении */
+        }
+        .content {
+            padding-top: 100vh; /* Добавляем отступ сверху, равный высоте видео, чтобы контент начинался после видео */
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 70px;
+        }
+        .gallery a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 10px;
+            cursor: pointer;
+            width: calc(50% - 20px); /* Распределение на 2 столбца */
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .gallery a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery a:hover::before {
+            opacity: 1;
+        }
+        /* Устанавливаем разные фоны для каждой ссылки */
+        .gallery a:nth-child(1)::before {
+            background-image: url('y1.png');
+        }
+        .gallery a:nth-child(2)::before {
+            background-image: url('y2.png');
+        }
+        .gallery a:nth-child(3)::before {
+            background-image: url('y3.png');
+        }
+        .gallery a:nth-child(4)::before {
+            background-image: url('y4.png');
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    </header>
+
+    <video autoplay loop muted id="background-video">
+        <source src="fon.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Логотип на видео -->
+    <div id="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <!-- Кнопка покупки в правом верхнем углу -->
+    <a id="buy-button" href="buy.html"><img src="buy.svg" alt="Buy" /></a>
+
+    <div class="content">
+        <div class="gallery">
+            <a href="s1.html"><img src="f1.png" alt="Image 1"></a>
+            <a href="s2.html"><img src="f2.png" alt="Image 2"></a>
+            <a href="s3.html"><img src="f3.png" alt="Image 3"></a>
+            <a href="s4.html"><img src="f4.png" alt="Image 4"></a>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function() {
+            var vid = document.getElementById("background-video");
+            var logo = document.getElementById("logo");
+            var buyButton = document.getElementById("buy-button");
+            var scrolled = window.scrollY;
+            var opacity = 1 - scrolled / window.innerHeight;
+            vid.style.opacity = opacity;
+            logo.style.opacity = opacity;
+            buyButton.style.opacity = opacity;
+        };
+    </script>
+
+</body>
+</html>
