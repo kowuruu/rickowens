@@ -1,0 +1,215 @@
+/* CSS */
+
+
+#bgVideo {
+    position: fixed; /* Позиционирование фиксированное, чтобы видео было всегда видно */
+    top: 0;
+    left: 0;
+    min-width: 100%; /* Минимальная ширина равная ширине экрана */
+    min-height: 100%; /* Минимальная высота равная высоте экрана */
+    width: auto; /* Автоматическая ширина */
+    height: auto; /* Автоматическая высота */
+    z-index: -1; /* Задаем z-index меньше чем у других элементов, чтобы поместить его за все остальное содержимое */
+    opacity: 50%;
+
+}
+
+
+
+#buy-button {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+  #bgVideo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Здесь можно настроить прозрачность (0.5 - 50% прозрачности) и цвет фона */
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white; /* Цвет текста контента */
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-style: normal;
+    background-color: #ffffff; /* Фиолетовый фон */
+    color: #ffffff; /* Белый текст */
+    text-align: center;
+    overflow-x: hidden;
+}
+
+#shipping-banner {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 10px 0;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3; /* Плашка будет над всеми остальными элементами */
+}
+
+header {
+    padding-top: 20px;
+}
+
+#logo {
+    position: relative;
+    width: 270px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    opacity: 100%;
+    top: 10px;
+}
+#logo:hover {
+    opacity: 10;
+  }
+
+
+
+#sneakers {
+    width: 80%;
+    margin: 100px auto;
+    transition: transform 2s, width 2s; /* Плавное изменение прозрачности */
+
+    
+    position: relative; /* Позиционирование стрелок относительно контейнера */
+    z-index: 0; /* Установите z-index, чтобы контейнер кроссовок был под описанием */
+    filter: grayscale(50%);
+}
+
+
+.sneaker {
+    display: none; /* Изначально скрываем все кроссовки */
+    width: 700px; /* Уменьшаем ширину картинок */
+   
+    height: auto; /* Поддерживаем соотношение сторон */
+    position: absolute; /* Абсолютное позиционирование кроссовок */
+    top: 500;
+    left: 500px;
+    transform: translateX(-50%);
+    transition: transform 2s, width 2s; /* Плавное изменение прозрачности */
+    top: -150px;
+}
+
+.active {
+    display: block; /* Показываем активную кроссовку */
+    transition: opacity 3s ease; /* Плавное изменение прозрачности */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный цвет */
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 20; /* Стрелки выше кроссовок */
+}
+
+.left-arrow {
+    
+    left: 100px;
+}
+
+.right-arrow {
+    right: 100px;
+}
+
+#description {
+    margin: 20px auto;
+    width: 60%;
+    position: relative;
+    z-index: 1;
+    top: 60px;
+    left: 370px;
+    color: #1b1b1b; /* Цвет текста цены */
+}
+
+#description h2 {
+    margin-bottom: 35px;
+    margin-top: -25px;
+    scale: 200%;
+    color: #575757; /* Цвет текста цены */
+}
+#description h2:hover {
+    color: #861212; /* Цвет текста цены */
+    transition: color 3s ease; 
+}
+
+.sizes {
+    margin-top: 10px; /* Отступ над кнопками выбора размера */
+}
+
+.actions {
+    margin-top: 10px; /* Отступ над кнопками действий */
+}
+
+/* Стилизация кнопок выбора размера */
+.size {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 5px;
+    background-color: rgb(243, 243, 243); /* Цвет фона */
+    color: rgb(0, 0, 0); /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease; /* Плавное изменение цвета фона */
+}
+
+.size:hover {
+    background-color: #1b1b1b; /* Цвет фона при наведении */
+    color: #ffffff;
+}
+.actions .wishlist,
+.actions .shopping-bag {
+    display: inline-block;
+    padding: 20px 20px;
+    margin-right: 5px;
+    background-color: rgb(243, 243, 243); /* Цвет фона */
+    color:#1b1b1b; /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease; /* Плавное изменение цвета фона */
+}
+
+.actions .wishlist:hover,
+.actions .shopping-bag:hover {
+    background-color: #1b1b1b; /* Цвет фона при наведении */
+    color:#ffffff;
+}
+
+.size.selected {
+    background-color: #130f0f; /* Цвет фона кнопки после ее нажатия */
+    color: #ffffff; /* Цвет текста кнопки после ее нажатия */
+}

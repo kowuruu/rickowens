@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rick Owens</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    #video-background {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1000;
+        background-size: cover;
+    }
+    #video-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        font-size: 20px; /* Уменьшил размер текста */
+    }
+    #home-link {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<video id="video-background" autoplay loop>
+  <source src="fon1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<div id="video-content">
+    <p style="margin-bottom: 5px;">корзины нет :P<br>наслаждайтесь клипом кай ангела</p> <!-- Добавил отступ внизу -->
+</div>
+<a id="home-link" href="index.html">Домой</a>
+</body>
+</html>
